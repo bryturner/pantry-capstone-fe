@@ -1,0 +1,77 @@
+<div class="log-reg-form-container">
+  <h1 class="log-reg-form-header">Register</h1>
+  <div class="log-reg-form-inputs-container">
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="firstName"
+        required
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="lastName"
+        required
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="username"
+        required
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        [(ngModel)]="password"
+        required
+        #passwordInput="ngModel"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Verify Password</mat-label>
+      <input
+        matInput
+        type="password"
+        [(ngModel)]="verifyPassword"
+        required
+        #verifyPasswordInput="ngModel"
+      />
+    </mat-form-field>
+    <mat-error
+      class="form-error-text"
+      *ngIf="
+        passwordInput.touched &&
+        verifyPasswordInput.touched &&
+        password !== verifyPassword
+      "
+      >Passwords do not match</mat-error
+    >
+  </div>
+  <div class="log-reg-form-buttons-container">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="password !== verifyPassword"
+      (click)="registerClick(username, password, firstName, lastName)"
+    >
+      Register
+    </button>
+    <button mat-raised-button (click)="ui.navigateToPage(Pages.Login)">
+      Go to login
+    </button>
+  </div>
+</div>

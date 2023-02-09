@@ -1,0 +1,52 @@
+.recipe-ingredient-text {
+  display: flex;
+  gap: 2rem;
+  align-items: baseline;
+}
+
+.recipe-ingredient-name {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.recipe-ingredient-name,
+.recipe-ingredient-grams,
+.amount-needed-suffix {
+  color: var(--color-teal-darkest);
+}
+
+.recipe-ingredient-calories,
+.recipe-ingredient-grams {
+  font-size: 1.8rem;
+}
+
+.recipe-ingredient-calories {
+  color: #666;
+}
+
+.recipe-ingredient-btn-cals {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding-right: 2rem;
+}
+
+.ingredient-input-container {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.ingredient-input {
+  flex: 1;
+}
+
+.recipe-form-ingredient-button {
+  margin-top: 1rem;
+}
+
+.amount-needed-suffix {
+  padding-right: 2rem;
+  padding-left: 1rem;
+  font-size: 1.8rem;
+}

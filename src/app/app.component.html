@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div class="container">
+  <p *ngIf="ui.getLoading()">Loading...</p>
+  <app-register *ngIf="ui.getCurrentPage() === Pages.Register"></app-register>
+  <app-login *ngIf="ui.getCurrentPage() === Pages.Login"></app-login>
+  <app-dashboard
+    *ngIf="ui.getCurrentPage() === Pages.Dashboard"
+  ></app-dashboard>
+  <app-new-recipe
+    *ngIf="ui.getCurrentPage() === Pages.NewRecipe"
+  ></app-new-recipe>
+  <app-edit-recipe
+    *ngIf="ui.getCurrentPage() === Pages.EditRecipe"
+  ></app-edit-recipe>
+  <app-recipe *ngIf="ui.getCurrentPage() === Pages.Recipe"></app-recipe>
+  <app-edit-app-user
+    *ngIf="ui.getCurrentPage() === Pages.EditAppUser"
+  ></app-edit-app-user>
+</div>

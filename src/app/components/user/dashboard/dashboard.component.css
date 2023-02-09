@@ -1,0 +1,57 @@
+.dashboard-create-buttons {
+  border-bottom: 1px solid rgba(153, 153, 153, 0.3);
+  display: flex;
+  gap: 2rem;
+  padding: 3.2rem 0;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 980px 325px;
+  column-gap: 4rem;
+}
+
+.dashboard-filters-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.ingredients-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-height: 925px;
+  overflow-y: scroll;
+  padding-bottom: 1rem;
+}
+
+.ingredients-container::-webkit-scrollbar {
+  display: none;
+}
+
+.dashboard-content {
+  font-size: 2rem;
+}
+
+.dashboard-recipes-container {
+  padding-bottom: 1rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-height: 1100px;
+  overflow-y: scroll;
+}
+
+.dashboard-header {
+  font-size: 3rem;
+  color: var(--color-teal-darkest);
+  font-family: "Roboto Serif", serif;
+}
+
+.scroll-buttons-container {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}

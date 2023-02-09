@@ -1,0 +1,58 @@
+<div class="ingredient-card-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title-group>
+        <img mat-card-sm-image src="{{ ingredient?.ingredientImage }}" />
+        <mat-card-title>{{ ingredient?.ingredientName }}</mat-card-title>
+        <mat-card-subtitle
+          [ngClass]="{ 'text-warning': ingredient?.amount === 0 }"
+        >
+          {{ ingredient?.amount | decimalToFraction }}
+          {{
+            ingredient?.uom
+              | formatUnitOfMeasure : "plural" : ingredient?.ingredientName
+          }}
+          remaining</mat-card-subtitle
+        >
+        <mat-card-subtitle
+          >{{ ingredient?.calories }} calories/{{
+            ingredient?.uom
+              | formatUnitOfMeasure : "singular" : ingredient?.ingredientName
+          }}</mat-card-subtitle
+        >
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content class="ingredient-content-container">
+      <app-add-ingredient-amount
+        *ngIf="addOpen"
+        [ingredient]="ingredient"
+        (addOpen)="addOpen = $event"
+      ></app-add-ingredient-amount>
+
+      <div *ngIf="!addOpen" class="ingredient-buttons-container">
+        <button
+          class="ingredient-button"
+          color="primary"
+          mat-raised-button
+          (click)="addOpen = !addOpen"
+        >
+          Add
+        </button>
+        <button
+          class="ingredient-button"
+          mat-raised-button
+          (click)="editClick(ingredient)"
+        >
+          Edit
+        </button>
+        <button
+          class="ingredient-button"
+          mat-raised-button
+          (click)="deleteClick(ingredient?.id, ingredient)"
+        >
+          Delete
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

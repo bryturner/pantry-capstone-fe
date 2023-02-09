@@ -1,0 +1,19 @@
+.recipe-ingredient-list-item-container {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.recipe-ingredient-list-item-text-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.gray-text {
+  color: #999;
+}
+
+.recipe-ingredient-warning-icon {
+  color: var(--color-warn);
+}

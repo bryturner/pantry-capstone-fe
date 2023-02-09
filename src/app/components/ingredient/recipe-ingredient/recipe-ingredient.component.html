@@ -1,0 +1,27 @@
+<div class="recipe-ingredient-list-item-container">
+  <mat-checkbox [(ngModel)]="checked"></mat-checkbox>
+  <div class="recipe-ingredient-list-item-text-container">
+    <span class="fz-1_6" [ngClass]="{ 'gray-text': checked }"
+      >{{ recipeIngredient.amountNeeded | decimalToFraction }}
+      {{ recipeIngredient.ingredient.uom | formatUnitOfMeasure }}
+      {{ recipeIngredient.ingredient.ingredientName | lowercase
+      }}<span
+        *ngIf="
+          recipeIngredient.amountNeeded !== 1 &&
+          recipeIngredient.ingredient.uom === 'n/a'
+        "
+        >s</span
+      >
+    </span>
+    <span
+      class="recipe-ingredient-warning"
+      *ngIf="recipeIngredient.amountNeeded > recipeIngredient.ingredient.amount"
+      ><mat-icon
+        class="recipe-ingredient-warning-icon"
+        matTooltip="Not enough in the pantry"
+        matTooltipPosition="right"
+        >notifications_active</mat-icon
+      ></span
+    >
+  </div>
+</div>

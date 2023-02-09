@@ -1,0 +1,66 @@
+<div class="instruction-form-el-container">
+  <h2 class="recipe-col-header">INSTRUCTIONS</h2>
+  <div
+    cdkDropList
+    cdkDropListOrientation="vertical"
+    (cdkDropListDropped)="dropInstruction($event)"
+  >
+    <div
+      cdkDrag
+      *ngFor="let instruction of instructions; index as i"
+      class="drag-container"
+    >
+      <div class="drag-container-content">
+        <div class="drag-container-text">
+          <mat-icon class="drag-icon">drag_indicator</mat-icon>
+          <span class="fz-2 color-darkest">{{ i + 1 }}.&nbsp;</span>
+          <p class="fz-2 color-darkest">{{ instruction }}</p>
+        </div>
+        <div class="drag-container-buttons">
+          <button
+            mat-icon-button
+            color="primary"
+            (click)="editInstructionStep(i)"
+          >
+            <mat-icon>mode_edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="removeInstructionStep(i)"
+          >
+            <mat-icon>remove_circle_outline</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="instruction-input-container">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>{{
+        instructions.length <= 0 ? "Add your first step" : "Add another step"
+      }}</mat-label>
+      <textarea
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="4"
+        matInput
+        placeholder="Pre-heat oven to 400F"
+        [(ngModel)]="instructionStep"
+        (keyup.enter)="addInstructionStep(instructionStep)"
+        (ngModelChange)="updateInput()"
+        #stepInput="ngModel"
+        #instructionInput
+      ></textarea>
+    </mat-form-field>
+    <button
+      class="recipe-form-add-button"
+      mat-mini-fab
+      color="primary"
+      (click)="addInstructionStep(instructionStep)"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>

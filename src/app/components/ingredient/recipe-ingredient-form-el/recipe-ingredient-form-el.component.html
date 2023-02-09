@@ -1,0 +1,93 @@
+<div class="recipe-ingredient-form-el-container">
+  <h2 class="recipe-col-header">INGREDIENTS</h2>
+  <div
+    cdkDropList
+    cdkDropListOrientation="vertical"
+    (cdkDropListDropped)="dropIngredient($event)"
+  >
+    <div
+      class="drag-container"
+      cdkDrag
+      *ngFor="let recipeIngredient of recipeIngredients; index as i"
+    >
+      <div class="drag-container-content">
+        <div class="drag-container-text">
+          <mat-icon class="drag-icon">drag_indicator</mat-icon>
+          <div class="recipe-ingredient-text">
+            <span class="recipe-ingredient-name">{{
+              recipeIngredient.ingredient.ingredientName | titlecase
+            }}</span>
+            <span class="recipe-ingredient-grams"
+              >{{ recipeIngredient.amountNeeded }}
+              {{
+                recipeIngredient.ingredient.uom
+                  | formatUnitOfMeasure
+                    : "plural"
+                    : recipeIngredient.ingredient.ingredientName
+              }}</span
+            >
+          </div>
+        </div>
+
+        <div class="recipe-ingredient-btn-cals">
+          <span class="recipe-ingredient-calories"
+            >Calories:
+            {{
+              recipeIngredient.amountNeeded
+                | calculateCalories : recipeIngredient.ingredient.calories
+            }}</span
+          >
+          <div>
+            <button mat-icon-button color="primary" (click)="editIngredient(i)">
+              <mat-icon>mode_edit</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              color="warn"
+              (click)="removeRecipeIngredient(i)"
+            >
+              <mat-icon>remove_circle_outline</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ingredient-input-container">
+    <mat-form-field appearance="outline" class="ingredient-input">
+      <mat-label>Ingredient</mat-label>
+      <mat-select [(ngModel)]="selectedIngredient">
+        <mat-option
+          *ngFor="let ingredient of ingredients"
+          [value]="ingredient"
+          >{{ ingredient.ingredientName | titlecase }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="ingredient-input">
+      <mat-label>Amount Needed</mat-label>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="amountNeeded"
+        min="0"
+        max="5000"
+        step=".125"
+        #amountInput
+      />
+      <span matSuffix class="amount-needed-suffix">{{
+        selectedIngredient?.uom
+          | formatUnitOfMeasure : "plural" : selectedIngredient?.ingredientName
+      }}</span>
+    </mat-form-field>
+    <button
+      mat-mini-fab
+      color="primary"
+      class="recipe-form-add-button"
+      (click)="addIngredient(selectedIngredient, amountNeeded)"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>

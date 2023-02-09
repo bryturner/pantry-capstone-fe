@@ -1,0 +1,110 @@
+<div class="edit-user-form-view-container">
+  <app-back-to-dashboard-button></app-back-to-dashboard-button>
+  <div class="edit-user-form-container">
+    <h1 class="edit-user-form-header">Edit Account Information</h1>
+    <div class="edit-user-form-inputs-container">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="firstName"
+          required
+          autocomplete="off"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="lastName"
+          required
+          autocomplete="off"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="username"
+          required
+          autocomplete="off"
+        />
+      </mat-form-field>
+      <button
+        mat-raised-button
+        class="change-password-button"
+        (click)="changePassword = !changePassword"
+      >
+        Change password?
+      </button>
+      <mat-form-field appearance="outline">
+        <mat-label>Current Password</mat-label>
+        <input
+          matInput
+          [disabled]="!changePassword"
+          [required]="changePassword"
+          type="password"
+          [(ngModel)]="currentPassword"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>New Password</mat-label>
+        <input
+          matInput
+          [disabled]="!changePassword"
+          [required]="changePassword"
+          type="password"
+          [(ngModel)]="newPassword"
+          #newPasswordInput="ngModel"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Verify Password</mat-label>
+        <input
+          matInput
+          [disabled]="!changePassword"
+          [required]="changePassword"
+          type="password"
+          [(ngModel)]="verifyNewPassword"
+          #verifyNewPasswordInput="ngModel"
+        />
+      </mat-form-field>
+    </div>
+    <mat-error
+      class="form-error-text"
+      *ngIf="
+        newPasswordInput.touched &&
+        verifyNewPasswordInput.touched &&
+        newPassword !== verifyNewPassword
+      "
+      >Passwords do not match</mat-error
+    >
+    <mat-error class="form-error-text" *ngIf="showPasswordIncorrectError"
+      >Current password is incorrect</mat-error
+    >
+    <div class="edit-user-form-button-container">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="
+          saveClick(
+            username,
+            firstName,
+            lastName,
+            currentPassword,
+            newPassword,
+            verifyNewPassword
+          )
+        "
+      >
+        Save Changes
+      </button>
+      <button mat-raised-button (click)="ui.deleteAppUser(currentAppUser?.id)">
+        Delete User
+      </button>
+    </div>
+  </div>
+</div>

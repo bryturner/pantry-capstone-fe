@@ -1,0 +1,12 @@
+<div class="recipe-form-view-container">
+  <div class="recipe-form-back-buttons-container">
+    <app-back-to-dashboard-button></app-back-to-dashboard-button>
+    <app-back-to-recipe-button
+      [recipe]="ui.getCurrentRecipe()"
+    ></app-back-to-recipe-button>
+  </div>
+  <div class="recipe-form-container">
+    <h1 class="recipe-form-header">Edit recipe</h1>
+    <app-recipe-form></app-recipe-form>
+  </div>
+</div>

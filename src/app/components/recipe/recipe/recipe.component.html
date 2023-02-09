@@ -1,0 +1,103 @@
+<div class="recipe-view-container">
+  <app-back-to-dashboard-button></app-back-to-dashboard-button>
+  <div class="recipe-container">
+    <div class="recipe-title-container">
+      <div class="recipe-title-text-container">
+        <div>
+          <h1 class="recipe-title-name">{{ recipe?.recipeName }}</h1>
+          <p class="recipe-title-app-user">By {{ recipe?.appUserFullName }}</p>
+        </div>
+        <p class="recipe-title-description-text">
+          {{ recipe?.recipeDescription }}
+        </p>
+      </div>
+      <div class="recipe-title-image-container">
+        <img class="recipe-title-image" src="{{ recipe?.recipeImage }}" />
+      </div>
+    </div>
+
+    <div class="recipe-details-container">
+      <div class="recipe-details-text-wrapper">
+        <mat-icon class="recipe-details-icon">schedule</mat-icon>
+        <span class="recipe-details-text"
+          ><strong>Prep Time:</strong> {{ recipe?.prepTime | timeFormat }}</span
+        >
+      </div>
+      <div class="recipe-details-text-wrapper">
+        <mat-icon class="recipe-details-icon">schedule</mat-icon>
+        <span class="recipe-details-text"
+          ><strong>Cook Time:</strong> {{ recipe?.cookTime | timeFormat }}</span
+        >
+      </div>
+      <div class="recipe-details-text-wrapper">
+        <mat-icon class="recipe-details-icon">schedule</mat-icon>
+        <span class="recipe-details-text"
+          ><strong>Total Time:</strong> {{ totalTime | timeFormat }}</span
+        >
+      </div>
+      <div class="recipe-details-text-wrapper">
+        <mat-icon class="recipe-details-icon">spa</mat-icon>
+        <span class="recipe-details-text">
+          <strong>Total Calories:</strong> {{ totalCalories }} cal
+        </span>
+      </div>
+    </div>
+
+    <div class="recipe-content-container">
+      <div class="recipe-col">
+        <h3 class="recipe-col-header">INGREDIENTS</h3>
+        <div class="recipe-ingredients-list">
+          <div
+            *ngFor="let recipeIngredient of recipe?.recipeIngredients"
+            class="recipe-ingredient-list-item"
+          >
+            <app-recipe-ingredient
+              [recipeIngredient]="recipeIngredient"
+            ></app-recipe-ingredient>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-col">
+        <h3 class="recipe-col-header">INSTRUCTIONS</h3>
+        <ol class="instructions-list">
+          <li
+            *ngFor="let instruction of recipe?.instructions"
+            class="instructions-list-item"
+          >
+            <span class="recipe-instruction-list-text">
+              {{ instruction }}
+            </span>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="recipe-buttons-container">
+      <button
+        class="recipe-button"
+        mat-raised-button
+        color="primary"
+        (click)="useRecipeClick(recipe?.recipeIngredients)"
+      >
+        Use Recipe
+      </button>
+      <button
+        class="recipe-button"
+        *ngIf="recipe?.appUserId === ui.getCurrentUserId()"
+        mat-raised-button
+        (click)="ui.goToRecipeEditView(recipe)"
+      >
+        Edit
+      </button>
+      <button
+        class="recipe-button"
+        *ngIf="recipe?.appUserId === ui.getCurrentUserId()"
+        mat-raised-button
+        (click)="ui.deleteRecipe(recipe?.id)"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

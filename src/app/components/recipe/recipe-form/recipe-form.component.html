@@ -1,0 +1,87 @@
+<div class="recipe-form-inputs-container">
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Recipe Name</mat-label>
+    <input
+      matInput
+      placeholder="Ex. Pizza"
+      [(ngModel)]="recipeName"
+      required
+      maxlength="200"
+      autocomplete="off"
+    />
+  </mat-form-field>
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Recipe Image</mat-label>
+    <input
+      matInput
+      placeholder="Copy and paste url"
+      [(ngModel)]="recipeImage"
+      required
+      autocomplete="off"
+    />
+  </mat-form-field>
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea
+      matInput
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="3"
+      cdkAutosizeMaxRows="5"
+      placeholder="Brief description of the recipe"
+      [(ngModel)]="recipeDescription"
+      required
+    ></textarea>
+  </mat-form-field>
+
+  <div class="recipe-form-time-inputs">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Preparation Time (Minutes)</mat-label>
+      <input
+        type="number"
+        class="time-input"
+        matInput
+        [(ngModel)]="prepTime"
+        required
+        min="0"
+        max="1000"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Cook Time (Minutes)</mat-label>
+      <input
+        type="number"
+        class="time-input"
+        matInput
+        [(ngModel)]="cookTime"
+        required
+        min="0"
+        max="1000"
+      />
+    </mat-form-field>
+  </div>
+  <app-recipe-ingredient-form-el
+    (recipeIngredientsData)="recipeIngredients = $event"
+    [recipeIngredients]="recipeIngredients"
+  ></app-recipe-ingredient-form-el>
+
+  <app-instruction-form-el
+    (instructionsData)="instructions = $event"
+    [instructions]="instructions"
+  ></app-instruction-form-el>
+
+  <div class="recipe-form-buttons-container">
+    <app-save-recipe-button
+      [ingredientData]="{
+        id: id,
+        recipeName: recipeName,
+        recipeImage: recipeImage,
+        recipeDescription: recipeDescription,
+        prepTime: prepTime,
+        cookTime: cookTime,
+        recipeIngredients: recipeIngredients,
+        instructions: instructions
+      }"
+    ></app-save-recipe-button>
+  </div>
+</div>

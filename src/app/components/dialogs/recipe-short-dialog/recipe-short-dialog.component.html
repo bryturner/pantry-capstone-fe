@@ -1,0 +1,26 @@
+<div mat-dialog-content>
+  <h3 class="dialog-header-text">Cannot use recipe!</h3>
+  <p class="dialog-subheader-text">You are short by:</p>
+  <ul>
+    <li
+      *ngFor="let recipeIngredient of recipeIngredients"
+      class="dialog-list-item"
+    >
+      {{ shortAmount(recipeIngredient) | decimalToFraction }}
+      {{ recipeIngredient.ingredient.uom | formatUnitOfMeasure }}
+      {{ recipeIngredient.ingredient.ingredientName | lowercase
+      }}<span
+        *ngIf="
+          recipeIngredient.amountNeeded !== 1 &&
+          recipeIngredient.ingredient.uom === 'n/a'
+        "
+        >s</span
+      >
+    </li>
+  </ul>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button class="dialog-button" (click)="onCancelClick()">
+    Ok
+  </button>
+</div>

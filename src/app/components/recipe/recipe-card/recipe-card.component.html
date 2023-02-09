@@ -1,0 +1,11 @@
+<button class="recipe-card-button" (click)="ui.goToRecipeView(recipe)">
+  <div class="recipe-card-container">
+    <div class="recipe-card-image-container">
+      <img src="{{ recipe?.recipeImage }}" class="recipe-image" />
+    </div>
+    <div class="recipe-card-text-container">
+      <h3 class="recipe-card-name">{{ recipe?.recipeName }}</h3>
+      <p class="recipe-card-author">By {{ recipe?.appUserFullName }}</p>
+    </div>
+  </div>
+</button>

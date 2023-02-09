@@ -1,0 +1,136 @@
+.recipe-view-container {
+  width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 10rem;
+}
+
+.recipe-container {
+  background-color: var(--color-teal-lightest);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.recipe-title-container {
+  display: flex;
+}
+
+.recipe-title-text-container {
+  background-color: var(--color-teal);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4rem;
+  color: var(--color-teal-lightest);
+}
+
+.recipe-title-name,
+.recipe-title-app-user,
+.recipe-title-description-text {
+  text-align: center;
+}
+
+.recipe-title-name {
+  font-family: "Roboto Serif", serif;
+  font-size: 3.6rem;
+  margin: 0;
+  padding-bottom: 0.6rem;
+}
+
+.recipe-title-app-user {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.recipe-title-description-text {
+  letter-spacing: 1.6px;
+  line-height: 1.6;
+  font-size: 1.6rem;
+  font-style: italic;
+  padding: 0 6rem 2rem 6rem;
+}
+
+.recipe-title-image-container {
+  flex: 1;
+  height: 500px;
+  width: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipe-title-image {
+  height: 500px;
+  width: auto;
+}
+
+/* time, calories */
+.recipe-details-container {
+  background-color: #fff2e3;
+  padding: 3rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.recipe-details-time-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipe-details-text-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.recipe-details-text {
+  font-size: 1.6rem;
+}
+
+.recipe-details-icon {
+  height: 1.6rem;
+  width: 1.6rem;
+  font-size: 1.6rem;
+}
+
+/* ingo, instr */
+.recipe-content-container {
+  display: flex;
+  gap: 4rem;
+  padding: 2rem 6rem 0 6rem;
+}
+
+.instructions-list {
+  margin-left: -2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.6rem;
+}
+
+.instructions-list-item {
+  font-size: 1.6rem;
+}
+
+.recipe-col {
+  flex: 1;
+}
+
+/* buttons */
+.recipe-buttons-container {
+  padding: 6rem 4rem 4rem 4rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.recipe-button-container > button {
+  flex: 1;
+}
+
+.recipe-button {
+  min-width: 130px;
+}

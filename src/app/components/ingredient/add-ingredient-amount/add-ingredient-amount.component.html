@@ -1,0 +1,29 @@
+<mat-form-field class="full-width" appearance="outline">
+  <mat-label>Amount</mat-label>
+  <input
+    matInput
+    type="number"
+    [(ngModel)]="amountToAdd"
+    required
+    step=".125"
+    min="0"
+    max="5000"
+  />
+  <span matTextSuffix>{{
+    ingredient?.uom
+      | formatUnitOfMeasure : "plural" : ingredient?.ingredientName
+  }}</span>
+</mat-form-field>
+<div class="ingredient-buttons-container">
+  <button
+    class="ingredient-button"
+    mat-raised-button
+    (click)="addAmountClick(ingredient?.id, amountToAdd)"
+    color="primary"
+  >
+    Add
+  </button>
+  <button class="ingredient-button" mat-raised-button (click)="cancelClick()">
+    Cancel
+  </button>
+</div>

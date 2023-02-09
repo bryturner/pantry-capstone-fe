@@ -1,0 +1,16 @@
+.ingredient-card-container {
+  max-width: 325px;
+}
+
+.ingredient-content-container {
+  padding-top: 2rem;
+}
+
+mat-card-title-group > img {
+  object-fit: cover;
+}
+
+.text-warning {
+  color: var(--color-warn);
+  font-weight: 500;
+}

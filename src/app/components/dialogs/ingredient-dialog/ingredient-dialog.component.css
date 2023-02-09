@@ -1,0 +1,13 @@
+.ingredient-dialog-container {
+  max-width: 500px;
+  padding: 2rem;
+}
+
+.ingredient-dialog-title {
+  text-align: center;
+  font-size: 3.2rem;
+}
+
+.ingredient-dialog-content-container {
+  padding-top: 3rem;
+}

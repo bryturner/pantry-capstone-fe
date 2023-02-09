@@ -1,0 +1,233 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-teal-lightest: #e6f5f3;
+  --color-teal-light: #b3e0db;
+  --color-teal: #009688;
+  --color-teal-dark: #00796b;
+  --color-teal-darkest: #002d29;
+  --color-teal-background: #f5fdfcaf;
+  --color-warn: #f44336;
+}
+
+html {
+  font-size: 62.5%;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fffefa;
+  background-image: url("./assets/images/pantry-background-light.png");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.log-reg-form-container {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 10rem;
+}
+
+/* UTILS */
+.full-width {
+  width: 100%;
+}
+
+.fz-2 {
+  font-size: 2rem;
+}
+
+.fz-1_6 {
+  font-size: 1.6rem;
+}
+
+.color-darkest {
+  color: var(--color-teal-darkest);
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.ff-serif {
+  font-family: "Roboto Serif", serif;
+}
+
+.recipe-col-header {
+  font-size: 2rem;
+  color: var(--color-teal-darkest);
+  font-family: "Roboto Serif", serif;
+}
+
+.mat-mdc-text-field-wrapper {
+  background-color: #fff;
+}
+
+.form-error-text {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.create-button {
+  width: 200px;
+}
+
+/* RECIPE FORM (NEW/EDIT RECIPE) */
+.recipe-form-view-container,
+.edit-user-form-view-container {
+  width: 80rem;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
+.recipe-form-back-buttons-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.recipe-form-back-button {
+  margin: 2rem 0;
+}
+
+.recipe-form-container,
+.edit-user-form-container,
+.log-reg-form-container {
+  background-color: #f5fdfcaf;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  padding: 2rem 4rem;
+}
+
+.recipe-form-header,
+.edit-user-form-header,
+.log-reg-form-header {
+  font-size: 3.2rem;
+  text-align: center;
+  color: var(--color-teal-darkest);
+  font-family: "Roboto Serif", serif;
+}
+
+.recipe-form-inputs-container,
+.edit-user-form-inputs-container,
+.log-reg-form-inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 2rem;
+}
+
+.recipe-form-time-inputs {
+  display: flex;
+  gap: 2rem;
+}
+
+.time-input::-webkit-outer-spin-button,
+.time-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.drag-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: grab;
+  border: 1px solid var(--color-teal-light);
+  border-radius: 5px;
+  background-color: #fff;
+  transition: border 0.2s ease;
+}
+
+.drag-container:hover {
+  border: 1px solid var(--color-teal);
+}
+
+.drag-container:active {
+  cursor: grabbing;
+}
+
+.drag-container-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.drag-icon {
+  padding-left: 1rem;
+  padding-right: 2rem;
+  color: #999;
+}
+
+.drag-container-text {
+  display: flex;
+  align-items: center;
+}
+
+.drag-container-buttons {
+  padding-right: 2rem;
+}
+
+.recipe-form-add-button {
+  margin-top: 1rem;
+}
+
+.cdk-drop-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.recipe-form-buttons-container,
+.edit-user-form-button-container,
+.log-reg-form-buttons-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.log-reg-form-buttons-container > button {
+  flex: 1;
+}
+
+/* INGREDIENT */
+.ingredient-buttons-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.ingredient-button {
+  flex: 1;
+}
+
+/* DIALOG */
+.dialog-header-text {
+  text-align: center;
+  color: var(--color-warn);
+}
+
+.diaog-subheading-text {
+  margin: 0;
+}
+
+.dialog-list-item {
+  margin-left: -1rem;
+}
+
+.dialog-button {
+  width: 12rem;
+}

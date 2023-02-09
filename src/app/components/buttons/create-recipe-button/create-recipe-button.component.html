@@ -1,0 +1,9 @@
+<button
+  mat-raised-button
+  class="create-button"
+  color="primary"
+  (click)="ui.navigateToPage(Pages.NewRecipe)"
+  *ngIf="ui.getIngredients().length !== 0"
+>
+  Create new recipe
+</button>

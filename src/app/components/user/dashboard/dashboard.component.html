@@ -1,0 +1,79 @@
+<div class="dashboard-create-buttons">
+  <app-create-recipe-button></app-create-recipe-button>
+  <app-new-ingredient-button></app-new-ingredient-button>
+</div>
+
+<div class="dashboard-container">
+  <div class="dashboard-col-container">
+    <h2 class="dashboard-header">Recipes</h2>
+    <div class="dashboard-filters-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Select User Recipes</mat-label>
+        <mat-select [(ngModel)]="selectedUser">
+          <mat-option value="All user recipes">All user recipes</mat-option>
+          <mat-option
+            *ngFor="let appUser of ui.getAllAppUsers()"
+            [value]="appUser"
+            >{{
+              appUser | formatFilterUsername : ui.getCurrentUserId()
+            }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Find Recipe by Title</mat-label>
+        <input matInput [(ngModel)]="filterRecipeName" autocomplete="off" />
+      </mat-form-field>
+    </div>
+
+    <div class="dashboard-recipes-container">
+      <p class="dashboard-text" *ngIf="ui.getIngredients().length === 0">
+        Add ingredients to create a recipe
+      </p>
+      <div
+        *ngFor="
+          let recipe of recipes
+            | filterRecipeByUser : selectedUser
+            | filterRecipeByName : filterRecipeName
+        "
+      >
+        <app-recipe-card [recipe]="recipe"></app-recipe-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="ingredients-col-container">
+    <h2 class="dashboard-header">Items in the Pantry</h2>
+    <mat-form-field class="full-width filter-ingredient" appearance="outline">
+      <mat-label>Find Item by Name</mat-label>
+      <input matInput [(ngModel)]="filterIngredientName" autocomplete="off" />
+    </mat-form-field>
+
+    <div class="ingredients-container" #ingredientsList>
+      <app-ingredient-card
+        *ngFor="
+          let ingredient of ingredients
+            | filterIngredientName : filterIngredientName
+        "
+        [ingredient]="ingredient"
+      ></app-ingredient-card>
+    </div>
+    <div class="scroll-buttons-container">
+      <button
+        mat-icon-button
+        color="primary"
+        (click)="scrollIngredientsList(925)"
+      >
+        <mat-icon>arrow_downward</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="primary"
+        (click)="scrollIngredientsList(-925)"
+      >
+        <mat-icon>arrow_upward</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

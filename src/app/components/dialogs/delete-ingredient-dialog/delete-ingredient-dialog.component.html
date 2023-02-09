@@ -1,0 +1,16 @@
+<div mat-dialog-content>
+  <h3 class="dialog-header-text">Cannot delete ingredient!</h3>
+  <p class="diaog-subheading-text">
+    The following recipes use {{ ingredient?.ingredientName }}:
+  </p>
+  <ul>
+    <li class="dialog-list-item" *ngFor="let recipe of recipes">
+      {{ recipe.recipeName }}
+    </li>
+  </ul>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button class="dialog-button" (click)="onClick()">
+    Ok
+  </button>
+</div>

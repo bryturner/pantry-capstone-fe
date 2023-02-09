@@ -1,0 +1,13 @@
+.reg-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.reg-button-container {
+  display: flex;
+  gap: 4rem;
+}
+
+.reg-button-container > button {
+  flex: 1;
+}

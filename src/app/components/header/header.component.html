@@ -1,0 +1,47 @@
+<header>
+  <div class="header-container">
+    <!-- <div class="header-logo-wrapper">
+      <img src="../../../assets/images/pantry-logo.png" alt="pantry logo" />
+    </div> -->
+    <h3 *ngIf="!ui.getIsLoggedIn()" class="header-text">The Pantry</h3>
+    <h3 *ngIf="ui.getIsLoggedIn()" class="header-text">
+      Welcome {{ ui.getCurrentUser()?.firstName }}!
+    </h3>
+
+    <div *ngIf="ui.getIsLoggedIn()" class="header-button-container">
+      <div class="user-icon-button-wrapper">
+        <button
+          mat-icon-button
+          class="header-button"
+          matTooltip="{{ ui.getCurrentUserFullName() }} "
+          (click)="ui.navigateToPage(Pages.EditAppUser)"
+        >
+          <mat-icon>account_circle</mat-icon>
+        </button>
+      </div>
+      <button mat-icon-button class="header-button" (click)="ui.logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </div>
+    <div *ngIf="!ui.getIsLoggedIn()">
+      <button
+        *ngIf="ui.getCurrentPage() === Pages.Register"
+        mat-icon-button
+        matTooltip="Go to login"
+        class="header-button"
+        (click)="ui.navigateToPage(Pages.Login)"
+      >
+        <mat-icon>login</mat-icon>
+      </button>
+      <button
+        *ngIf="ui.getCurrentPage() === Pages.Login"
+        mat-icon-button
+        matTooltip="Go to register"
+        class="header-button"
+        (click)="ui.navigateToPage(Pages.Register)"
+      >
+        <mat-icon>person_add</mat-icon>
+      </button>
+    </div>
+  </div>
+</header>

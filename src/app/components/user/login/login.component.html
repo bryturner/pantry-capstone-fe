@@ -1,0 +1,25 @@
+<div class="log-reg-form-container">
+  <h1 class="log-reg-form-header">Login</h1>
+  <div class="log-reg-form-inputs-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input matInput [(ngModel)]="username" required autocomplete="off" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" [(ngModel)]="password" required />
+    </mat-form-field>
+  </div>
+  <div class="log-reg-form-buttons-container">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="ui.login(username, password)"
+    >
+      Login
+    </button>
+    <button mat-raised-button (click)="ui.navigateToPage(Pages.Register)">
+      Go to register
+    </button>
+  </div>
+</div>

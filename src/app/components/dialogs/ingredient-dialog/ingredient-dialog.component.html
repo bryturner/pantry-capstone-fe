@@ -1,0 +1,89 @@
+<div class="ingredient-dialog-container">
+  <h1 mat-dialog-title class="ingredient-dialog-title">
+    Ingredient Information
+  </h1>
+  <div mat-dialog-content class="ingredient-dialog-content-container">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Ingredient Name</mat-label>
+      <input
+        matInput
+        placeholder="Flour"
+        [(ngModel)]="ingredientName"
+        autocomplete="off"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Ingredient Image</mat-label>
+      <input
+        matInput
+        placeholder="Copy and paste url"
+        [(ngModel)]="ingredientImage"
+        autocomplete="off"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Total Amount</mat-label>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="amount"
+        required
+        min="0"
+        max="5000"
+        step=".125"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Unit of Measurement</mat-label>
+      <mat-select [(ngModel)]="uom" required>
+        <mat-option *ngFor="let uomOption of uomOptions" [value]="uomOption">{{
+          uomOption | formatUnitOfMeasure : "n/a" | titlecase
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Calories per Unit</mat-label>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="calories"
+        required
+        min="0"
+        max="5000"
+      />
+    </mat-form-field>
+
+    <div class="ingredient-buttons-container">
+      <button
+        class="ingredient-button"
+        mat-raised-button
+        color="primary"
+        (click)="
+          onSubmitClick(ingredientName, ingredientImage, uom, amount, calories)
+        "
+      >
+        Submit
+      </button>
+      <button
+        *ngIf="!isNewIngredient"
+        class="ingredient-button"
+        mat-raised-button
+        (click)="resetClick()"
+      >
+        Reset
+      </button>
+      <button
+        class="ingredient-button"
+        mat-raised-button
+        (click)="onCancelClick()"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
